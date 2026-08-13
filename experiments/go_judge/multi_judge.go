@@ -59,9 +59,16 @@ func testcase(case_number int) int {
 	go func() {
 		done <- cmd.Wait()	
 	}()
-
+	
 	select {
-		case <- done: 
+		case done_error := <- done: 
+
+			if done_error != nil {
+				fmt.Println(done_error)
+				fmt.Println("stderr: ", Stderr.String())
+				return -1
+			}
+			
 			output_file_name := fmt.Sprintf("input%d.ans", case_number)
 			output_file, err := os.ReadFile(output_file_name)
 		

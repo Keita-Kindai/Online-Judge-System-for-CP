@@ -2,10 +2,8 @@
 using namespace std;
 
 int main() {
-  int a, b;
-  cin >> a >> b;
+  vector<int> a;
   while (1) {
-    a += b;
+    a.push_back(1);
   }
-  cout << a * b << endl;
 }
