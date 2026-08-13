@@ -4,7 +4,8 @@ using namespace std;
 int main() {
   int a, b;
   cin >> a >> b;
-  while (1)
-    a++;
+  while (1) {
+    a += b;
+  }
   cout << a * b << endl;
 }
