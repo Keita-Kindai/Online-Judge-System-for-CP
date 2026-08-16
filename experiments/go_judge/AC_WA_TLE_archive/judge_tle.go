@@ -1,3 +1,10 @@
+/**
+* 前回のACかWAを判定できるか、に加えてTLE判定もできるようにしたいファイルです。
+* 基本的にはgo routineを使った並行処理、そしてchannelとtime、そしてselectを使って
+* time.After(2)とchannelの戻りがどちらか早い方の処理が優先されるシステムになっています。
+* まだ初期段階なので特にAC or WA or TLE以外を判定できる機能がないです。
+*
+*/
 package main 
 
 import (

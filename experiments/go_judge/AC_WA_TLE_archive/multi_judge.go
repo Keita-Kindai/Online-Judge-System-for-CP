@@ -1,5 +1,10 @@
+/**
+* TLEの判定に加えて複数のテストケースの判定もできるようにしたプログラムです。
+* 工夫としてはcompile()とtestcase(i)でそれぞれの処理を関数化しています
+* inputファイルとoutputファイルの形式は今のところinput1.txt input1.ans、という形にしています。
+*
+*/
 package main
-
 
 import (
     "fmt"   
@@ -29,8 +34,8 @@ func compile() bool {
 
 func testcase(case_number int) int {
 	fmt.Printf("Testcase#%d ", case_number)	
-
-	cmd := exec.Command("./a.out")
+	
+	cmd := exec.Command("prlimit", "--as=67108864", "./a.out")
 
 	var Stdout bytes.Buffer
 	var Stderr bytes.Buffer
@@ -113,7 +118,8 @@ func main() {
 	}
 
 	if err == true {
-		log.Fatalf("Internal Error Occured")	
+		fmt.Println("Internal Error Occured")	
+		return
 	}
 
 	if success == 0 {
